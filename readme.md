@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/2a4L9bD1)
 # Laboratorio: Git y GitHub
 
@@ -12,17 +11,6 @@ Git resuelve exactamente eso. Pero Git no es solo un "backup con historial": es 
 
 Este laboratorio simula el flujo de trabajo que vas a encontrar en equipos profesionales: ramas de trabajo, pull requests, revisión de código y resolución de conflictos.
 
-=======
-# Laboratorio: Git y GitHub
-
-**Nombre:** ___________________________
-**Compañero/a:** ___________________________
-
----
-
-## Antes de empezar
-
->>>>>>> origin/feature/conflicto-demo
 ### Herramientas necesarias
 
 - **Git** instalado localmente
@@ -523,11 +511,7 @@ git push
 
 ### Paso 16 — Revertirlo con `git revert`
 
-<<<<<<< HEAD
 `git revert` crea un nuevo commit que deshace los cambios del commit indicado. A diferencia de `git reset`, no modifica el historial existente: agrega un commit nuevo encima. Esto es seguro en ramas compartidas porque no causa conflictos para quienes ya descargaron los commits anteriores.
-=======
-`git revert` crea un nuevo commit que deshace los cambios del commit anterior. A diferencia de `git reset`, no borra historia — es seguro en ramas compartidas.
->>>>>>> origin/feature/conflicto-demo
 
 > Si nunca usaste vim, configurá nano como editor antes de correr el revert:
 > ```bash
@@ -554,7 +538,6 @@ git log --oneline
 
 Deberías ver el commit `wip: experimento roto` seguido del `Revert "wip: experimento roto"`.
 
-<<<<<<< HEAD
 ---
 
 **P3.** `git revert` crea un commit nuevo que deshace los cambios de uno anterior. ¿Por qué es preferible a `git reset --hard` cuando los cambios ya fueron pusheados?
@@ -570,16 +553,6 @@ d) Porque GitHub bloquea automáticamente los push después de un `git reset --h
 ```
 RESPUESTA_P3=c
 ```
-=======
-**P1** — ¿Por qué `git revert` es preferible a `git reset --hard` cuando ya hiciste push de los cambios?
-
-> R:
-
-```
-PARTE_III_COMPLETA=
-```
-_(escribí SI cuando el revert esté pusheado)_
->>>>>>> origin/feature/conflicto-demo
 
 ---
 
@@ -595,13 +568,9 @@ El repositorio ya tiene una branch `feature/conflicto-demo` que implementa `esPa
 
 ### ¿Por qué ocurren los conflictos?
 
-<<<<<<< HEAD
 Los conflictos son **normales** en el trabajo colaborativo — no son un error del sistema ni una falla de coordinación. Ocurren cuando dos branches modificaron la misma línea del mismo archivo. Git no sabe cuál versión es la correcta: esa decisión la tiene que tomar un humano que entiende el contexto.
 
 Cuanto más seguido se integran las ramas (y más pequeñas son las features), menos conflictos se acumulan. Los conflictos grandes y difíciles de resolver suelen ser síntoma de branches que estuvieron demasiado tiempo sin integrarse con `main`.
-=======
-Un conflicto ocurre cuando dos branches modificaron la misma línea del mismo archivo. Git no sabe cuál versión es la correcta — esa decisión la tiene que tomar un humano.
->>>>>>> origin/feature/conflicto-demo
 
 ```
 main                    →  esPar: return (n % 2) == 0; /* version main */
@@ -658,11 +627,7 @@ Abrí `operaciones.c`. Vas a ver algo así:
 
 ```c
 int esPar(int n) {
-<<<<<<< HEAD
     return (n % 2) == 0; /* version main */
-=======
-    return (n & 1) == 0;
->>>>>>> origin/feature/conflicto-demo
 }
 ```
 
@@ -701,7 +666,6 @@ git commit -m "Resuelve conflicto en esPar: conserva version con operador %"
 git push
 ```
 
-<<<<<<< HEAD
 ---
 
 **P4.** Las dos implementaciones de `esPar` que conflictuaban eran `(n % 2) == 0` y `(n & 1) == 0`. ¿Qué diferencia hay entre ellas?
@@ -715,24 +679,13 @@ c) `(n & 1) == 0` no funciona con números negativos en ningún compilador C est
 d) No hay ninguna diferencia; el compilador genera exactamente el mismo código para ambas
 
 ```
-RESPUESTA_P4=
+RESPUESTA_P4=b
 ```
-=======
-**P2** — Describí con tus palabras qué diferencia hay entre las dos implementaciones de `esPar` que conflictuaban. ¿En qué caso podría importar elegir una sobre la otra?
-
-> R:
-
-```
-PARTE_IV_COMPLETA=
-```
-_(escribí SI cuando el conflicto esté resuelto y pusheado)_
->>>>>>> origin/feature/conflicto-demo
 
 ---
 
 ## Preguntas de reflexión
 
-<<<<<<< HEAD
 **P5.** Un compañero te dice: "yo hago un solo commit al final del día con todo lo que hice". ¿Qué problema principal trae esa práctica?
 
 a) Ninguno; es una práctica válida y más eficiente
@@ -744,7 +697,7 @@ c) Si hay que revertir un cambio puntual es imposible sin deshacer todo lo del d
 d) Git rechaza commits que modifiquen demasiados archivos al mismo tiempo
 
 ```
-RESPUESTA_P5=
+RESPUESTA_P5=c
 ```
 
 ---
@@ -760,7 +713,7 @@ c) `git fetch` solo descarga la branch actual; `git pull` descarga todas las bra
 d) `git pull` siempre pide confirmación antes de modificar archivos locales; `git fetch` no
 
 ```
-RESPUESTA_P6=
+RESPUESTA_P6=b
 ```
 
 ---
@@ -776,21 +729,8 @@ c) Qué problema resuelve o qué funcionalidad agrega, cómo se verificó que fu
 d) El tiempo que tardó en implementarse y el nombre del autor
 
 ```
-RESPUESTA_P7=
+RESPUESTA_P7=c
 ```
-=======
-**P3** — Un compañero te dice: "yo hago un solo commit al final del día con todo lo que hice". ¿Qué problemas puede traer esa práctica? ¿Qué le dirías?
-
-> R:
-
-**P4** — ¿Cuál es la diferencia entre `git fetch` y `git pull`? ¿Cuándo preferirías usar uno sobre el otro?
-
-> R:
-
-**P5** — ¿Qué información debería tener la descripción de un Pull Request para que sea útil para quien lo revisa?
-
-> R:
->>>>>>> origin/feature/conflicto-demo
 
 ---
 
